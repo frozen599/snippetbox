@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
-	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime)
+	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	app := application{
 		errorLog: errorLog,
@@ -38,8 +38,7 @@ func main() {
 		Handler:  mux,
 	}
 
-	log.Println("Starting server on :8000")
+	infoLog.Printf("Starting server on %s", *addr)
 	err := srv.ListenAndServe()
-	log.Fatal(err)
-
+	errorLog.Fatal(err)
 }

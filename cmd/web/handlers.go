@@ -14,9 +14,9 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	files := []string{
-		"./ui/html/home.page.html",
-		"./ui/html/base.layout.html",
-		"./ui/html/footer.partial.html",
+		"./ui/html/home.page.tmpl",
+		"./ui/html/base.layout.tmpl",
+		"./ui/html/footer.partial.tmpl",
 	}
 	ts, err := template.ParseFiles(files...)
 	if err != nil {
@@ -47,4 +47,11 @@ func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Write([]byte("Create a new snippet..."))
+}
+
+type Home struct {
+}
+
+func (h *Home) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("This is my home page"))
 }
