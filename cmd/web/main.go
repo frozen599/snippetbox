@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gopher5889/snippetbox/pkg/models/mysql"
+	"github.com/frozen599/snippetbox/pkg/models/mysql"
 	_ "github.com/go-sql-driver/mysql"
 )
 

@@ -3,7 +3,7 @@ package mysql
 import (
 	"database/sql"
 
-	"github.com/gopher5889/snippetbox/pkg/models"
+	"github.com/frozen599/snippetbox/pkg/models"
 )
 
 type SnippetModel struct {
