@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"net/http"
 	"runtime/debug"
@@ -20,4 +21,17 @@ func (app *application) clientError(w http.ResponseWriter, status int) {
 
 func (app *application) notFound(w http.ResponseWriter) {
 	app.clientError(w, http.StatusNotFound)
+}
+
+func openDB(dsn string) (*sql.DB, error) {
+	db, err := sql.Open("mysql", dsn)
+	if err != nil {
+		return nil, err
+	}
+
+	if err = db.Ping(); err != nil {
+		return nil, err
+	}
+
+	return db, nil
 }
