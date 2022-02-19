@@ -110,3 +110,7 @@ type Home struct {
 func (h *Home) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("This is my home page"))
 }
+
+func (app *application) createSnippetForm(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Creating a new snippet..."))
+}
