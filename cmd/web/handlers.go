@@ -112,5 +112,5 @@ func (h *Home) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) createSnippetForm(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Creating a new snippet..."))
+	app.render(w, r, "create.page.tmpl", nil)
 }
