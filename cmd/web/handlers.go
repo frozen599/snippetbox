@@ -181,7 +181,7 @@ func (app *application) signupUser(w http.ResponseWriter, r *http.Request) {
 
 	app.session.Put(r, "flash", "Your signup was successful. Please log in")
 
-	fmt.Fprintln(w, "Create a new user...")
+	http.Redirect(w, r, "/users/login", http.StatusSeeOther)
 }
 
 func (app *application) loginUserForm(w http.ResponseWriter, r *http.Request) {
