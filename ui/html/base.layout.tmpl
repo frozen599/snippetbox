@@ -13,10 +13,22 @@
                 <h1><a href="/">Snippetbox</a></h1>
             </header>
             <nav>
-                <a href="/">Home</a>
-                <a href="/snippet/create">Create snippet</a>
+                <div>
+                    <a href="/">Home</a>
+                    <a href="/snippet/create">Create snippet</a>
+                </div>
+                <div>
+                    <a href="/users/signup">Sign up</a>
+                    <a href="/users/login">Log in </a>
+                    <form action="/users/logout" method="POST">
+                        <button>Log out</button>
+                    </form>
+                </div>
             </nav>
             <section>
+                {{with .Flash}}
+                <div class='flash'>{{.}}</div>
+                {{end}}
                 {{template "body" .}}
             </section>
             {{template "footer" .}}
