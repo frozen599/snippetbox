@@ -50,6 +50,7 @@ func (app *application) render(w http.ResponseWriter, r *http.Request, name stri
 	err := ts.Execute(buf, app.addDefaultData(td, r))
 	if err != nil {
 		app.serverError(w, err)
+		return
 	}
 
 	buf.WriteTo(w)
