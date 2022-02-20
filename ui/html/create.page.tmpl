@@ -4,6 +4,7 @@
 
 {{define "body"}}
 <form action="/snippets/create" method="POST">
+    <input type="hidden" name='csrf_token' value='{{.CSRFToken}}'
     {{with .Form}}
         <div>
             <label>Title:</label>
@@ -25,9 +26,9 @@
                 <label class='error'>{{.}}</label>
             {{end}}
             {{$exp := or (.Get "expires") "365"}}
-            <input type='radio' name='expires' value='365' checked> One Year
-            <input type='radio' name='expires' value='7'> One week
-            <input type='radio' name='expires' value='1'> One day
+            <input type='radio' name='expires' value='365' {{if (eq $exp "365")}}checked{{end}}> One Year
+            <input type='radio' name='expires' value='7' {{if (eq $exp "7")}}checked{{end}}> One Week
+            <input type='radio' name='expires' value='1' {{if (eq $exp "1")}}checked{{end}}> One Day
         </div>
         <div>
             <input type='submit' value='Publish snippet'>
