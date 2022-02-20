@@ -15,14 +15,19 @@
             <nav>
                 <div>
                     <a href="/">Home</a>
-                    <a href="/snippets/create">Create snippet</a>
+                    {{if .AuthenticatedUser}}
+                        <a href="/snippets/create">Create snippet</a>
+                    {{end}}
                 </div>
                 <div>
-                    <a href="/users/signup">Sign up</a>
-                    <a href="/users/login">Log in </a>
-                    <form action="/users/logout" method="POST">
-                        <button>Log out</button>
-                    </form>
+                    {{if .AuthenticatedUser }}
+                        <form action="/users/logout" method="POST">
+                            <button>Log out</button>
+                        </form>
+                    {{else}}
+                        <a href="/users/signup">Sign up</a>
+                        <a href="/users/login">Log in </a>
+                    {{end}}
                 </div>
             </nav>
             <section>
@@ -32,7 +37,6 @@
                 {{template "body" .}}
             </section>
             {{template "footer" .}}
-
             <script src="/static/js/main.js" type="text/javascript"></script>
         </body>
     </html>
