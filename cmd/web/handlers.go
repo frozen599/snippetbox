@@ -179,7 +179,7 @@ func (app *application) signupUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	app.session.Put(r, "flash", "Your signup was successful. Please log in")
+	app.session.Put(r, "flash", "Your sign up was successful. Please log in")
 
 	http.Redirect(w, r, "/users/login", http.StatusSeeOther)
 }
