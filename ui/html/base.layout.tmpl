@@ -22,6 +22,7 @@
                 <div>
                     {{if .AuthenticatedUser }}
                         <form action="/users/logout" method="POST">
+                            <input type="hidden" name='csr_token' value='{{.CSRFToken}}'>
                             <button>Log out</button>
                         </form>
                     {{else}}
