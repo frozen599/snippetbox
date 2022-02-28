@@ -1,5 +1,5 @@
 # SnippetBox
-Web Development Using Go without 3rd party frameworks
+Web development in Go without using 3rd party web frameworks
 
 Original tutorial from Alex Edwards' book: *Let's Go*
 
