@@ -23,6 +23,10 @@ type application struct {
 	users         *mysql.UserModel
 }
 
+type contextKey string
+
+var contextKeyUser = contextKey("user")
+
 func main() {
 	dsn := flag.String("dsn", "web:leo123456@/snippetbox?parseTime=true", "MYSQL Database")
 	addr := flag.String("addr", ":8000", "HTTP Network Address")
